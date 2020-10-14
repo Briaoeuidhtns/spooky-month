@@ -1,6 +1,9 @@
-[gd_resource type="TileSet" load_steps=5 format=2]
+[gd_resource type="TileSet" load_steps=6 format=2]
 
 [ext_resource path="res://isotiles.png" type="Texture" id=1]
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( 0, -32, 64, 0, 0, 32, -64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, -32, 64, 0, 0, 32, -64, 0 )
@@ -47,6 +50,7 @@ points = PoolVector2Array( -40, 16, 24, -16, 40, -8, -24, 24 )
 2/region = Rect2( 28, 220, 140, 140 )
 2/tile_mode = 0
 2/occluder_offset = Vector2( 70, 70 )
+2/occluder = SubResource( 4 )
 2/navigation_offset = Vector2( 70, 70 )
 2/shape_offset = Vector2( 70, 70 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 70, 70 )
