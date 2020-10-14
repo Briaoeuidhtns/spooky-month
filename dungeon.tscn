@@ -6,7 +6,7 @@
 [node name="Dungeon" type="Node2D"]
 
 [node name="Dark" type="CanvasModulate" parent="."]
-color = Color( 0.133333, 0.133333, 0.133333, 1 )
+color = Color( 0.101961, 0.101961, 0.101961, 1 )
 
 [node name="Floor" type="TileMap" parent="."]
 mode = 1
