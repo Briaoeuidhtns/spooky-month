@@ -27,3 +27,4 @@ tile_data = PoolIntArray( -917493, 2, -1200553578, -917492, 2, -1200553578, -917
 
 [node name="Troll" parent="Walls" instance=ExtResource( 2 )]
 position = Vector2( 465.57, 285.247 )
+MOTION_SPEED = 140
