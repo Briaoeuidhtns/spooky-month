@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-const MOTION_SPEED = 160 # Pixels/second.
+export var MOTION_SPEED = 160 # Pixels/second.
+onready var player = $Sprite
 
 func _physics_process(_delta):
 	var motion = Vector2()
