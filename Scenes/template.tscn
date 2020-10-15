@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://troll.tscn" type="PackedScene" id=2]
 
 [node name="Dungeon" type="Node2D"]
 
@@ -27,7 +26,3 @@ cell_tile_origin = 1
 cell_y_sort = true
 centered_textures = true
 format = 1
-
-[node name="Troll" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 177, 99 )
-MOTION_SPEED = 140
