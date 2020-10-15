@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://isotiles.png" type="Texture" id=1]
+[ext_resource path="res://Assets/placeholder/isofloor_64.png" type="Texture" id=2]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -64, 0, 0, 32, 64, 0, 0, -32 )
@@ -66,3 +67,7 @@ region_rect = Rect2( 54, 426, 85, 110 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Door1/StaticBody2D"]
 polygon = PoolVector2Array( -24, 24, 40, -8, 24, -16, -40, 16 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 169, 227.5 )
+texture = ExtResource( 2 )
