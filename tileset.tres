@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/tilesets/cobblewebwall.png" type="Texture" id=9]
 [ext_resource path="res://Assets/tilesets/crackedstonewall.png" type="Texture" id=10]
 
-[sub_resource type="SegmentShape2D" id=1]
+[sub_resource type="SegmentShape2D" id=2]
 b = Vector2( 32, 16 )
 
 [resource]
@@ -137,14 +137,14 @@ b = Vector2( 32, 16 )
 8/navigation_offset = Vector2( 16, 28.5 )
 8/shape_offset = Vector2( 16, 12.5 )
 8/shape_transform = Transform2D( 1, 0, 0, 1, 16, 12.5 )
-8/shape = SubResource( 1 )
+8/shape = SubResource( 2 )
 8/shape_one_way = false
 8/shape_one_way_margin = 1.0
 8/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 12.5 )
 } ]
 8/z_index = 0
@@ -158,14 +158,14 @@ b = Vector2( 32, 16 )
 9/navigation_offset = Vector2( 16, 28.5 )
 9/shape_offset = Vector2( 16, 12.5 )
 9/shape_transform = Transform2D( 1, 0, 0, 1, 16, 12.5 )
-9/shape = SubResource( 1 )
+9/shape = SubResource( 2 )
 9/shape_one_way = false
 9/shape_one_way_margin = 1.0
 9/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 12.5 )
 } ]
 9/z_index = 0
@@ -179,14 +179,14 @@ b = Vector2( 32, 16 )
 10/navigation_offset = Vector2( 16, 28.5 )
 10/shape_offset = Vector2( 16, 12.5 )
 10/shape_transform = Transform2D( 1, 0, 0, 1, 16, 12.5 )
-10/shape = SubResource( 1 )
+10/shape = SubResource( 2 )
 10/shape_one_way = false
 10/shape_one_way_margin = 1.0
 10/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 12.5 )
 } ]
 10/z_index = 0
@@ -200,14 +200,14 @@ b = Vector2( 32, 16 )
 11/navigation_offset = Vector2( 16, 28.5 )
 11/shape_offset = Vector2( 16, 12.5 )
 11/shape_transform = Transform2D( 1, 0, 0, 1, 16, 12.5 )
-11/shape = SubResource( 1 )
+11/shape = SubResource( 2 )
 11/shape_one_way = false
 11/shape_one_way_margin = 1.0
 11/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 12.5 )
 } ]
 11/z_index = 0

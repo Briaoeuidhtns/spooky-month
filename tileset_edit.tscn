@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/tilesets/scuffedcanwood.png" type="Texture" id=1]
 [ext_resource path="res://Assets/placeholder/isofloor_64.png" type="Texture" id=2]
-[ext_resource path="res://Assets/placeholder/portal.png" type="Texture" id=3]
 [ext_resource path="res://Assets/tilesets/bloodiedwood.png" type="Texture" id=4]
 [ext_resource path="res://Assets/tilesets/woodfloor.png" type="Texture" id=5]
 [ext_resource path="res://Assets/placeholder/wall.png" type="Texture" id=6]
@@ -11,7 +10,7 @@
 [ext_resource path="res://Assets/tilesets/cobblewebwall.png" type="Texture" id=9]
 [ext_resource path="res://Assets/tilesets/crackedstonewall.png" type="Texture" id=10]
 
-[sub_resource type="SegmentShape2D" id=1]
+[sub_resource type="SegmentShape2D" id=2]
 b = Vector2( 32, 16 )
 
 [node name="TilesetEdit" type="Node2D"]
@@ -22,10 +21,6 @@ __meta__ = {
 [node name="PlaceholderTile" type="Sprite" parent="."]
 position = Vector2( 36.8508, 18.5975 )
 texture = ExtResource( 2 )
-
-[node name="Portal" type="Sprite" parent="."]
-position = Vector2( 36.9993, 62.1435 )
-texture = ExtResource( 3 )
 
 [node name="TileWood" type="Sprite" parent="."]
 position = Vector2( 205.565, 35.9003 )
@@ -49,7 +44,7 @@ region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceholderWall/StaticBody2D"]
 position = Vector2( 0, -16 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="PlaceholderCorner" type="Sprite" parent="."]
 position = Vector2( 253.786, -31.748 )
@@ -65,7 +60,7 @@ offset = Vector2( 16, -28 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallCobbleWeb/StaticBody2D"]
 position = Vector2( 0, -16 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="WallCobble" type="Sprite" parent="."]
 position = Vector2( 285.046, 156.041 )
@@ -76,7 +71,7 @@ offset = Vector2( 16, -28 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallCobble/StaticBody2D"]
 position = Vector2( 0, -16 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="WallWoodPanel" type="Sprite" parent="."]
 position = Vector2( 359.628, 154.509 )
@@ -87,4 +82,4 @@ offset = Vector2( 16, -28 )
 position = Vector2( 0, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallWoodPanel/StaticBody2D"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
