@@ -23,6 +23,10 @@ as well as be occluded when standing in front or behind them."
 run/main_scene="res://Scenes/template.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneSwitcher="*res://Scenes/scene_switcher.gd"
+
 [display]
 
 window/size/width=320
