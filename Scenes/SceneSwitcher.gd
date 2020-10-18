@@ -19,12 +19,16 @@ func travel(dx: int, dy: int, player: Object):
 	if !player.has_moved:
 		return
 		
-	print('Travel Event: [%d, %d]' % [location_x + dx, location_y + dy])
 	# if at edge just return
 	var next_scene = room_matrix[location_x + dx][location_y + dy]
 	
 	if !next_scene:
 		return
+		
+	location_x += dx
+	location_y += dy
+	
+	print('Current Room: [%d, %d]' % [location_x, location_y])
 	call_deferred("_deferred_goto_scene", next_scene, player)
 
 
