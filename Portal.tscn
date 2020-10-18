@@ -13,3 +13,4 @@ script = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( -32, 0, 0, 16, 32, 0, 0, -16 )
 [connection signal="body_entered" from="StaticBody2D" to="." method="on_body_entered"]
+[connection signal="body_exited" from="StaticBody2D" to="." method="on_body_exited"]

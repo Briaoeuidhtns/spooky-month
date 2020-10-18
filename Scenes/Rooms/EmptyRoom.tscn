@@ -13,11 +13,11 @@ position = Vector2( 160.024, 31.6178 )
 x = -1
 
 [node name="SouthWest" parent="Floor" index="1" instance=ExtResource( 2 )]
-position = Vector2( 161.084, 159.813 )
+position = Vector2( 161.084, 159.218 )
 y = -1
 
 [node name="SouthEast" parent="Floor" index="2" instance=ExtResource( 2 )]
-position = Vector2( 415.885, 160.343 )
+position = Vector2( 416.48, 160.343 )
 x = 1
 
 [node name="NorthEast" parent="Floor" index="3" instance=ExtResource( 2 )]

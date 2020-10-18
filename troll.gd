@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var MOTION_SPEED = 160 # Pixels/second.
 export var has_moved = true
+export var teleporting = false
 
 onready var player = $Sprite
 
