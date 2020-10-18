@@ -54,11 +54,11 @@ func _deferred_goto_scene(scene_instance, player, dx, dy):
 	# TODO Player retains location and inf loops enters a new room, 
 	# set player moved state 
 	if current_scene != null:
-		current_scene.remove_child(player)
+		current_scene.get_node('Walls').remove_child(player)
 		get_tree().get_root().remove_child(current_scene)
 	get_tree().get_root().add_child(scene_instance)
 	get_tree().set_current_scene(scene_instance)
-	scene_instance.add_child(player)
+	scene_instance.get_node('Walls').add_child(player)
 	
 	current_scene = scene_instance
 
@@ -68,6 +68,7 @@ func _deferred_goto_scene(scene_instance, player, dx, dy):
 		player.position = door.position
 	else:
 		print('Starting')
+		
 	print('Current Room: [%d, %d]' % [location_x, location_y])
 
 func randomize_matrix(x, y):
@@ -102,6 +103,6 @@ func _ready():
 	
 	var player = ResourceLoader.load("res://troll.tscn").instance()
 	# TODO: move player creation logic
-	print('Ready Called?')
+	player.position = Vector2(300, 100)
 	
 	travel(0, 0, player)
