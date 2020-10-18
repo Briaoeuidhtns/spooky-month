@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/tilesets/cobblewebwall.png" type="Texture" id=9]
 [ext_resource path="res://Assets/tilesets/crackedstonewall.png" type="Texture" id=10]
 
-[sub_resource type="SegmentShape2D" id=2]
+[sub_resource type="SegmentShape2D" id=1]
 b = Vector2( 32, 16 )
 
 [node name="TilesetEdit" type="Node2D"]
@@ -44,7 +44,7 @@ region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceholderWall/StaticBody2D"]
 position = Vector2( 0, -16 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="PlaceholderCorner" type="Sprite" parent="."]
 position = Vector2( 253.786, -31.748 )
@@ -60,7 +60,7 @@ offset = Vector2( 16, -28 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallCobbleWeb/StaticBody2D"]
 position = Vector2( 0, -16 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="WallCobble" type="Sprite" parent="."]
 position = Vector2( 285.046, 156.041 )
@@ -71,7 +71,7 @@ offset = Vector2( 16, -28 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallCobble/StaticBody2D"]
 position = Vector2( 0, -16 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="WallWoodPanel" type="Sprite" parent="."]
 position = Vector2( 359.628, 154.509 )
@@ -82,4 +82,4 @@ offset = Vector2( 16, -28 )
 position = Vector2( 0, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallWoodPanel/StaticBody2D"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )

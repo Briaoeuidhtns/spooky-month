@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/placeholder/portallanding.png" type="Texture" id=1]
+[ext_resource path="res://PortalCollision.gd" type="Script" id=2]
+
+[node name="PortalLanding" type="Sprite"]
+position = Vector2( 36.9993, 62.1435 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

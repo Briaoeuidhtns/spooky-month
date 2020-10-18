@@ -13,7 +13,9 @@ var null_room = false
 var rng = RandomNumberGenerator.new()
 
 
-var room_resources =  [ResourceLoader.load("res://Scenes/Rooms/EmptyRoom.tscn")]
+var room_resources =  [ResourceLoader.load("res://Scenes/Rooms/EmptyRoom.tscn"),
+						ResourceLoader.load("res://Scenes/Rooms/TestRoom1.tscn"),
+						ResourceLoader.load("res://Scenes/Rooms/TestRoom2.tscn")]
 
 func entering_door_name(dx, dy):
 	if dx == 0 && dy == 1:
@@ -33,43 +35,39 @@ func travel(dx: int, dy: int, player: Object):
 	if new_x < 0 || new_y < 0 || new_x >= len(room_matrix) || new_y >= len(room_matrix[0]):
 		return
 	
-	print('Travel Event [%d, %d]' % [dx, dy])
 	var next_scene = room_matrix[location_x + dx][location_y + dy]
 	
 	if !next_scene:
 		return
-		
+	
+	player.has_moved = false
+	print('Travel Event [%d, %d]' % [dx, dy])
 	location_x += dx
 	location_y += dy
-	# no more collision events for this person
-	print('Disabling Collision')
-	player.get_node('CollisionShape2D').disabled = true
+	
 	call_deferred("_deferred_goto_scene", next_scene, player, dx, dy)
+	# print('Enabling Collision')
+	#player.get_node('CollisionShape2D').set_deferred("disabled", false)
 
 
 func _deferred_goto_scene(scene_instance, player, dx, dy):	
-	
 	# TODO Player retains location and inf loops enters a new room, 
 	# set player moved state 
-	# TODO have player enter next room at corresponding portal
-	get_tree().get_root().get_node('Dungeon/Walls').remove_child(player)
-	get_tree().get_root().remove_child(current_scene)
+	if current_scene != null:
+		current_scene.remove_child(player)
+		get_tree().get_root().remove_child(current_scene)
 	get_tree().get_root().add_child(scene_instance)
 	get_tree().set_current_scene(scene_instance)
-	get_tree().get_root().get_node('Dungeon/Walls').add_child(player)
+	scene_instance.add_child(player)
 	
 	current_scene = scene_instance
 
 	if !(dx == 0 and dy == 0):
 		print('Floor/' + entering_door_name(dx, dy))
-		var door = scene_instance.get_node('Floor/' + entering_door_name(dx, dy))
+		var door = scene_instance.get_node('Floor/' + entering_door_name(dx, dy) + 'Entry')
 		player.position = door.position
 	else:
 		print('Starting')
-	
-	# re-enable collision
-	print('Enabling Collision')
-	player.get_node('CollisionShape2D').disabled = false
 	print('Current Room: [%d, %d]' % [location_x, location_y])
 
 func randomize_matrix(x, y):
@@ -104,6 +102,6 @@ func _ready():
 	
 	var player = ResourceLoader.load("res://troll.tscn").instance()
 	# TODO: move player creation logic
-	get_tree().get_root().get_node('Dungeon/Walls').add_child(player)
+	print('Ready Called?')
 	
 	travel(0, 0, player)
