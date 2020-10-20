@@ -1,3 +1,6 @@
 [gd_scene format=2]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Dark" type="CanvasModulate" parent="."]
+color = Color( 0.101961, 0.101961, 0.101961, 1 )
