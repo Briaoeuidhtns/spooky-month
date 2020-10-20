@@ -12,10 +12,12 @@ var null_room = false
 
 var rng = RandomNumberGenerator.new()
 
+var room_resources = [
+	ResourceLoader.load("res://Scenes/Rooms/EmptyRoom.tscn"),
+	ResourceLoader.load("res://Scenes/Rooms/TestRoom1.tscn"),
+	ResourceLoader.load("res://Scenes/Rooms/TestRoom2.tscn")
+]
 
-var room_resources =  [ResourceLoader.load("res://Scenes/Rooms/EmptyRoom.tscn"),
-						ResourceLoader.load("res://Scenes/Rooms/TestRoom1.tscn"),
-						ResourceLoader.load("res://Scenes/Rooms/TestRoom2.tscn")]
 
 func entering_door_name(dx, dy):
 	if dx == 0 && dy == 1:
@@ -26,58 +28,64 @@ func entering_door_name(dx, dy):
 		return 'NorthEast'
 	if dx == -1 && dy == 0:
 		return 'SouthEast'
-		
+
+
 func travel(dx: int, dy: int, player: Object):
 	# if at edge just return
-	
+
 	var new_x = location_x + dx
 	var new_y = location_y + dy
 	if new_x < 0 || new_y < 0 || new_x >= len(room_matrix) || new_y >= len(room_matrix[0]):
 		return
-	
+
 	var next_scene = room_matrix[location_x + dx][location_y + dy]
-	
-	if !next_scene:
+
+	if ! next_scene:
 		return
-	
+
 	player.has_moved = false
 	print('Travel Event [%d, %d]' % [dx, dy])
 	location_x += dx
 	location_y += dy
-	
+
 	call_deferred("_deferred_goto_scene", next_scene, player, dx, dy)
 	# print('Enabling Collision')
 	#player.get_node('CollisionShape2D').set_deferred("disabled", false)
 
 
-func _deferred_goto_scene(scene_instance, player, dx, dy):	
-	# TODO Player retains location and inf loops enters a new room, 
-	# set player moved state 
+func _deferred_goto_scene(scene_instance, player, dx, dy):
+	# TODO Player retains location and inf loops enters a new room,
+	# set player moved state
 	if current_scene != null:
 		current_scene.get_node('Walls').remove_child(player)
 		get_tree().get_root().remove_child(current_scene)
 	get_tree().get_root().add_child(scene_instance)
 	get_tree().set_current_scene(scene_instance)
 	scene_instance.get_node('Walls').add_child(player)
-	
+
 	current_scene = scene_instance
 
-	if !(dx == 0 and dy == 0):
+	if ! (dx == 0 and dy == 0):
 		print('Floor/' + entering_door_name(dx, dy))
 		var door = scene_instance.get_node('Floor/' + entering_door_name(dx, dy) + 'Entry')
 		player.position = door.position
 	else:
 		print('Starting')
-		
+
 	print('Current Room: [%d, %d]' % [location_x, location_y])
 
+
 func randomize_matrix(x, y):
-	if (x < 0 || x > len(room_matrix) - 1 
-		|| y < 0 || y > len(room_matrix[0]) - 1 
-		|| room_matrix[x][y] != null):
-		return;
-	
-	if (rng.randi_range(0, 1)):
+	if (
+		x < 0
+		|| x > len(room_matrix) - 1
+		|| y < 0
+		|| y > len(room_matrix[0]) - 1
+		|| room_matrix[x][y] != null
+	):
+		return
+
+	if rng.randi_range(0, 1):
 		room_matrix[x][y] = null_room
 		return
 	var room = room_resources[rng.randi_range(0, len(room_resources) - 1)]
@@ -87,11 +95,12 @@ func randomize_matrix(x, y):
 	randomize_matrix(x + 1, y)
 	randomize_matrix(x - 1, y)
 	randomize_matrix(x, y + 1)
-	randomize_matrix(x , y - 1)
+	randomize_matrix(x, y - 1)
+
 
 func _ready():
 	rng.randomize()
-	
+
 	# initialize matrix
 	for i in range(length):
 		room_matrix.append([])
@@ -100,9 +109,9 @@ func _ready():
 	room_matrix[0][0] = room_resources[rng.randi_range(0, len(room_resources) - 1)].instance()
 	randomize_matrix(1, 0)
 	randomize_matrix(0, 1)
-	
+
 	var player = ResourceLoader.load("res://troll.tscn").instance()
 	# TODO: move player creation logic
 	player.position = Vector2(300, 100)
-	
+
 	travel(0, 0, player)
