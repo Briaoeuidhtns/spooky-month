@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Enemies/hammerman.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Enemies/EnemyTemplate.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 670.454
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 288.39
+
+[node name="Monster" type="AnimatedSprite"]
+position = Vector2( 0.353597, -17.9936 )
+scale = Vector2( 0.110724, 0.0954613 )
+frames = SubResource( 3 )
+script = ExtResource( 2 )
+
+[node name="StaticBody2D" type="Area2D" parent="."]
+
+[node name="Vision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1.34565, 6.06 )
+shape = SubResource( 1 )
+
+[node name="KillRange" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0.674255, -0.621506 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="StaticBody2D" to="." method="on_body_entered"]
+[connection signal="body_entered" from="StaticBody2D" to="StaticBody2D" method="on_body_entered"]
+[connection signal="body_exited" from="StaticBody2D" to="." method="on_body_exited"]
+[connection signal="body_exited" from="StaticBody2D" to="StaticBody2D" method="on_body_exited"]
